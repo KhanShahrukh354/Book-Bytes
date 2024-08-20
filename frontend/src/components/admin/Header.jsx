@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FaRegBell } from "react-icons/fa";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [reqData, setReqData] = useState([]);
   const [showNoti, setShowNoti] = useState(false);
-
+ const navigate=useNavigate();
   const getRequestsData = async () => {
     try {
       const response = await axios.get(
@@ -23,7 +24,9 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 z-30 right-0 left-0 w-[100%] h-[50px] flex justify-between items-center pl-10 sm:pl-5 sm:pr-8 pr-20 py-10 md:py-7 border-b-[1px] border-b-slate-500 shadow-xl bg-slate-800">
-      <p className="font-extrabold text-4xl md:text-3xl text-white sm:text-lg">
+      <p className="font-extrabold text-4xl md:text-3xl text-white sm:text-lg cursor-pointer"
+      onClick={()=>navigate("/books")}
+      >
         Book Byte <span className="text-lg text-slate-300">( Dashboard )</span>
       </p>
 
