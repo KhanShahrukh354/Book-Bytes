@@ -29,7 +29,7 @@ const App = () => {
       dispatch(setY());
     }
     getBooks();
-    document.title = "Abodh";
+    document.title = "Book Bytes";
   }, []);
 
   return (
